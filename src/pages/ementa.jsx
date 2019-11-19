@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Table from '../components/Table'
-import genPDF from '../components/EmentaPDF'
+import { Link } from 'react-router-dom'
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -58,7 +58,7 @@ class Ementa extends Component {
                                 <textarea class="form-control is-invalid" id="validationTextarea" placeholder="sistema de avaliacao" required></textarea>
                                 <div class="invalid-feedback">Como vai ser a avaliacao das disciplinas</div>
                             </div>
-                            <input onClick={() => genPDF({allpdf: "teste"})} type="button" value="gerar pdf"/>
+                            <Link to="/pdf">gerar pdf</Link>
                             <input onClick={() => this.props.select()} type="button" value="testar" />
                         </form>
                     </div>
