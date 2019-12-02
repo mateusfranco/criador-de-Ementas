@@ -2,10 +2,10 @@ import React from 'react'
 import Activity from "../components/Activity";
 
 const INITIAL_STATE = { activitys: []}
-var cont = 0;
+let cont = 0;
 
 export default function(state = INITIAL_STATE, action){
-    var aux = state.activitys
+    let aux = state.activitys
     switch(action.type){
         case 'ADD':
             aux.push(<Activity id={cont++}></Activity>)            

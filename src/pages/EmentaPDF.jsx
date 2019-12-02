@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import './EmentaPDF.css'
 
-export default class testes extends Component{
+class testes extends Component{
     render(props){
         return (
             
@@ -18,7 +19,7 @@ export default class testes extends Component{
 <p class="p4 ft4">2019/02</p>
 <p class="p5 ft3">1. Identificação</p>
 <p class="p6 ft3"><span class="ft3">1.1.</span><span class="ft5">Unidade: Campus Russas</span></p>
-<p class="p7 ft3"><span class="ft3">1.2.</span><span class="ft5">Curso: Engenharia de Software</span></p>
+<p class="p7 ft3"><span class="ft3">1.2.</span><span class="ft5">Curso: {this.props.supplies.curso}</span></p>
 <p class="p6 ft3"><span class="ft3">1.3.</span><span class="ft5">Estrutura Curricular </span><nobr>(ano-período):</nobr> 2018.1</p>
 <p class="p8 ft3"><span class="ft3">1.4.</span><span class="ft5">Nome da Disciplina: Arquitetura de Software</span></p>
 <p class="p6 ft3"><span class="ft3">1.5.</span><span class="ft5">Código da Disciplina: RUS0242</span></p>
@@ -760,3 +761,8 @@ export default class testes extends Component{
         )
     }
 }
+
+
+const mapStateToProps = state => ({ supplies: state.supplies, activity: state.activities, disciplinas: state.disciplinas })
+
+export default connect(mapStateToProps)(testes)

@@ -1,7 +1,7 @@
-import  getEmenta from '../API/receive'
+import getEmenta from '../API/getEmenta'
 
-
-const INITAL_STATE = { supplies:{
+const INITAL_STATE = { 
+    supplies:{
         curso: "",
         disciplina: "",
         metodologia: "",
@@ -11,23 +11,31 @@ const INITAL_STATE = { supplies:{
 }
 
 export default function(state = INITAL_STATE, action){
-    let supplies = state.supplies
+    
+
     switch(action.type){
         case 'SEL':
-            //aqui vou ter que ir no servidor e pegar as informacoes reais
-            let aux = getEmenta("teste","teste2")
-            
-            supplies['curso'] = "teste"
-            supplies['disciplina'] = "teste2"
+            let supplies = state.supplies
+            if(supplies == undefined){
+                supplies = {
+                                curso: "",
+                                disciplina: "",
+                                metodologia: "",
+                                atividades: "",
+                                avaliacao: ""
+                            } 
+            }
+            let aux = getEmenta(action.payload.curso,action.payload.disciplina)
+            console.log(action.payload.curso + action.payload.disciplina)
+            supplies['curso'] = action.payload.curso
+            supplies['disciplina'] = action.payload.disciplina
             supplies['atividades'] = aux['atividades']
             supplies['metodologia'] = aux['metodologia']
             supplies['avaliacao'] = aux['avaliacao']
-
             return supplies
         case 'ALL':
-        
-            return supplies
+            return state
         default : 
-            return state;
+            return state
     }
 }
