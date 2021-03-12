@@ -7,7 +7,7 @@
     "aaxios": "^0.18.1",
     "axios": "^0.19.0",
     "html2canvas": "^1.0.0-rc.5",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "phantom-html-to-pdf": "^0.6.0",
     "phantom-html2pdf": "^4.0.2",
     "react": "^16.11.0",
